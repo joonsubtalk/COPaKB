@@ -484,7 +484,7 @@
                 </asp:ContentPlaceHolder>
             </div>
             <div class="span3">
-                <h2>Instructions to users</h2>
+                <h2>Instructions to Users</h2>
                 <ul class="unstyled">
                     <li><a href="COPaWikiDefault.aspx?PageName=COPaKB+Help+Desk">Help Desk</a></li>
                     <li><a href="COPaWikiDefault.aspx?PageName=tools">COPaKB Tools</a></li>

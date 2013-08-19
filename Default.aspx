@@ -25,7 +25,7 @@
         </div>
         <div class="row-fluid">
             <div class="span6 offset6">
-                <h2>COPaKB Database</h2>
+                <h2>About COPaKB</h2>
             </div>
         </div>
         <div class="row-fluid">
@@ -53,31 +53,34 @@
             <div class="span6">
             <!--<img src="./assets/img/smallmito.png" class="img-rounded">-->
             <p>
-                The COPa Knowledgebase (COPaKB) Project is developed under NHLBI Proteomics Centers Program. COPaKB offers a unique informatics platform to facilitate understanding of novel biological insights from proteomics datasets: (1) COPaKB is a curated relational database of protein molecular and biomedical phenotype properties, interfaced to a website for public data retrieval. (2) COPaKB allows any investigators to process raw proteomics data, and returns a consistently annotated report of protein properties. (3) COPaKB offers a wide range of informatics tools for investigators to analyze different studies in parallel and to conduct meta-analyses. Collectively, COPaKB affords investigators with broad access to datasets of proteomics technologies, thus elevating their utilities in the studies of cardiovascular biology and medicine.
+                The COPa Knowledgebase (COPaKB) Project is developed under NHLBI Proteomics Centers Program. COPaKB has been created as a unique resource to facilitate understanding of novel biological insights from proteomic datasets: (1) COPaKB is a curated relational database of protein molecular and biomedical phenotype properties, interfaced to a website for public data retrieval. (2) COPaKB allows any investigators to process raw proteomic datasets without the need of accessing high-end instrumentation, and returns a consistently annotated report of protein properties. (3) COPaKB offers a wide range of informatics tools for investigators to analyze different studies in parallel and to conduct meta-analyses. 
             </p>
             </div>
          </div>
         <div class="row-fluid">
             <div class="span6">
                 <div class="copa-img">
+                    <p style="font-size: 14px; font-weight: bold; text-align:center">COPaKB Worldwide User Base <br /> <span style="font-size: 12px; font-weight: normal">(as of August 16<sup>th</sup>, 2013)</span></p>
                     <img src="assets/img/map.jpg" />
+                    <p style="font-size: 12px; text-align:left">The color scale represents the number of visits to COPaKB from individual countries. Darker color (e.g., that of US) corresponds to more visits (e.g., 8,927). </p>
                 </div>
             </div>
             <div class="span6">
                 <div class="row-fluid">
                     <p style="font-size: 20px; font-weight: bold;">Statistics and Updates of COPaKB</p>
-                       (as of August 16th, 2013)</p>
                 </div>
                 <div class="row-fluid">
-                    120,414 Pageviews <br />
-                    10.27 Pages/visit <br />
-                    4,591 Unique visitors <br />
-                    95 Countries <br />
+                    According to Google Analytics, COPaKB has received <br /> 
+                    120,414 Pageviews from<br />
+                    4,591 Unique Visitors in<br />
+                    95 Countries averaging<br />
+                    10.27 Pages/Visit <br />
+                    (See the Figure on the left) <br />
                 </div>
                 <br />
                 <div class="row-fluid">
-                    -Six new modules are added to COPaKB, which now presents ten modules in total.<br />
-                    -COPaKB now supports iHOP analysis. <br />
+                    -COPaKB now offers ten modules in total.<br />
+                    -<span>iHOP function is now part of the COPaKB reports to protein queries</span>. <br />
                     -COPaKB is synchronized with Human Protein Atlas version 11. <br />
                     -COPaKB Client V2.0 is available to download. It is coded in JAVA.<br />
                     -iCOPa V2.1 is available to download at iTunes store.<br />
