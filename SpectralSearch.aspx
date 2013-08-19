@@ -4,13 +4,13 @@
     <asp:Panel ID="panel1" defaultbutton="btSearch" Runat="Server">
 
             <div class="row-fluid ">
-                <h2>Query COPaKB with .DTA files</h2>
+                <h2>Query MS Data File (DTA)</h2>
                 <div class="alert alert-info">
                 <button type="button" class="close button" data-toggle="collapse" data-target="#helpBar">&times;</button>
                 <h4>Introduction:</h4>
                     <div id="helpBar" class="collapse in">
                         <p>
-                        This webpage is dedicated to analyze individual MS2 spectrum in DTA format. Spectrum can be uploaded as a file from your computer or its content can be loaded as plain text into the textbox. You may test-run this utility by loading a sample file available in the &quot;Load a Sample Spectrum&quot; section. If you would like to analyze raw spectra files, please use <a href="COPaKBClient.aspx" target="_blank">COPaKB Client</a> (batch analysis) or visit <a href ="MSRUNSearch.aspx"> this webpage</a> (single file analysis).
+                        MS data file in DTA format can be processed via this webpage. Spectrum can be uploaded as a file from your computer or its content can be loaded as plain text into the textbox. You may test-run this utility by loading a sample file available in the &quot;Load a Sample Spectrum&quot; section. If you would like to analyze raw spectra files, please use <a href="COPaKBClient.aspx" target="_blank">COPaKB Client</a> (batch analysis) or visit <a href ="MSRUNSearch.aspx"> this webpage</a> (single file analysis).
                         </p>
                     </div>
                 </div>

@@ -4,12 +4,12 @@
 
 <div class="row-fluid ">
     <div class="span12">
-        <h2>COPaKB Client</h2>
+        <h2>COPaKB Client: Batch Analysis of MS Data Files</h2>
         <div class="alert alert-info">
         <button type="button" class="close button" data-toggle="collapse" data-target="#helpBar">&times;</button>
         <h4>Introduction:</h4>
             <div id="helpBar" class="collapse in">
-                <p>COPaKB Client integrates a set of bioinformatics tools to help you manage and review proteomic analyses on your computer (PC, Mac or Linux; 32-bit or 64-bit). This program is tailored to process a large batch of raw data files. At the end of the analyses, this program provides an integrated report of the proteomic and genomic signatures, imaging datasets and biomedical attributes related to heart biology.</p>
+                <p>MS data files can be analyzed in batch using COPaKB Client program. COPaKB Client integrates a set of bioinformatics tools to help you manage proteomic analyses on your computer (PC, Mac or Linux; 32-bit or 64-bit). At the end of the analyses, this program provides an integrated report of the proteomic and genomic signatures, imaging datasets and biomedical attributes related to heart biology.</p>
                 <p>COPaKB Client has been created to overcome possible loss of data when there is a failure in network connectivity. This is achieved by dividing large spectral files into small data packets, which are submitted independently to the server. Step-by-step illustration on the application of COPaKB Client is available in <a href="http://www.heartproteome.org/copa/COPaWikiDefault.aspx?PageName=COPaKB Client">COPaKB Wiki</a>.</p>
             </div>
         </div>

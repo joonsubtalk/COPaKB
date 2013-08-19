@@ -22,9 +22,9 @@ public partial class KeywordSearch : System.Web.UI.Page
             int ktype = int.Parse(Request.QueryString["type"]);
 
             if (ktype == 1)
-                this.ddlQueryType3.Items.FindByValue("Protein ID").Selected = true;
+                this.ddlQueryType3.Items.FindByValue("Protein Identifier").Selected = true;
             else if (ktype == 2)
-                this.ddlQueryType3.Items.FindByValue("Peptide Sequence").Selected = true;
+                this.ddlQueryType3.Items.FindByValue("Amino Acid Sequence").Selected = true;
         }
         
         // not implemented yet
@@ -43,7 +43,7 @@ public partial class KeywordSearch : System.Web.UI.Page
             url += "QValue=" + this.tbKeyWords3.Text;
             Response.Redirect(url);
         }
-        if (this.ddlQueryType3.SelectedValue.StartsWith("Peptide"))
+        if (this.ddlQueryType3.SelectedValue.StartsWith("Amino"))
         {
 
             string url = "PeptideInfo.aspx?";

@@ -60,9 +60,9 @@
         <div class="row-fluid">
             <div class="span6">
                 <div class="copa-img">
-                    <p style="font-size: 14px; font-weight: bold; text-align:center">COPaKB Worldwide User Base <br /> <span style="font-size: 12px; font-weight: normal">(as of August 16<sup>th</sup>, 2013)</span></p>
+                    <p style="font-size: 14px; font-weight: bold; text-align:center">COPaKB Worldwide Usage Report<br /> <span style="font-size: 12px; font-weight: normal">(as of August 16<sup>th</sup>, 2013)</span></p>
                     <img src="assets/img/map.jpg" />
-                    <p style="font-size: 12px; text-align:left">The color scale represents the number of visits to COPaKB from individual countries. Darker color (e.g., that of US) corresponds to more visits (e.g., 8,927). </p>
+                    <p style="font-size: 12px; text-align:left">The color scale represents the number of visits to COPaKB from individual countries. Darker color (e.g., that of US) corresponds to more visits (e.g., 8,927 visits). </p>
                 </div>
             </div>
             <div class="span6">
@@ -70,20 +70,25 @@
                     <p style="font-size: 20px; font-weight: bold;">Statistics and Updates of COPaKB</p>
                 </div>
                 <div class="row-fluid">
-                    According to Google Analytics, COPaKB has received <br /> 
-                    120,414 Pageviews from<br />
-                    4,591 Unique Visitors in<br />
-                    95 Countries averaging<br />
-                    10.27 Pages/Visit <br />
-                    (See the Figure on the left) <br />
+                    As of August 2013, Google Analytics reports the following data on COPaKB (Please see the Figure on the left): <br /> 
+                    <ul>
+                        <li><span style="text-decoration: underline"><em>120,414</em></span> pageviews;</li>
+                        <li><span style="text-decoration: underline"><em>10.27</em></span> pageviews per visit;</li>
+                        <li><span style="text-decoration: underline"><em>4,591</em></span> unique visitors;</li>
+                        <li><span style="text-decoration: underline"><em>95</em></span> countries are represented.<br /></li>
+                    </ul>
+                    
                 </div>
                 <br />
                 <div class="row-fluid">
-                    -COPaKB now offers ten modules in total.<br />
-                    -<span>iHOP function is now part of the COPaKB reports to protein queries</span>. <br />
-                    -COPaKB is synchronized with Human Protein Atlas version 11. <br />
-                    -COPaKB Client V2.0 is available to download. It is coded in JAVA.<br />
-                    -iCOPa V2.1 is available to download at iTunes store.<br />
+                    In August 2013, COPaKB implemented the following updates: <br /> 
+                    <ul>
+                        <li>COPaKB now offers ten modules in total;</li>
+                        <li>iHOP function is now part of the COPaKB reports;</li>
+                        <li>COPaKB is updated with Human Protein Atlas version 11;</li>
+                        <li>COPaKB Client V2.0 is now available in Java;</li>
+                        <li>iCOPa V2.1 is available to download at iTunes store.</li>
+                    </ul>
                 </div>
             </div>
             <!--<div class="span4">

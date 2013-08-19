@@ -39,7 +39,7 @@ public partial class PeptideInfo2 : System.Web.UI.Page
                 QueryPeptideID(QueryValue);
 
                 break;
-            case "Peptide Sequence":
+            case "Amino Acid Sequence":
                 QueryPeptideSequence(QueryValue);
                 break;
         }

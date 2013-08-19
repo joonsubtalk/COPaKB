@@ -46,13 +46,13 @@ function LoadSample() {
  </script>
 
 <div class="row-fluid ">
-    <h2>Query COPaKB with .mzML File</h2>
+    <h2>Query MS Data File (mzML)</h2>
     <div class="alert alert-info">
     <asp:Literal ID="informationBtn" runat="server"></asp:Literal>
     <h4>Introduction:</h4>
     <asp:Literal ID="informationShow" runat="server"></asp:Literal>
             <ul>
-                <li>File in either .mzML or .raw (Thermo Scientific Inc.) format is supported. Other formats can be converted to .mzML format using <a href="http://proteowizard.sourceforge.net/">ProteoWizard Converter</a>. You can locate your local .mzML file in the "Local Data File" section. Alternatively, a file in the web (http or ftp) can be used. Its URL address can be specified in the textbox below. </li>
+                <li>MS data file in .mzML format is supported. Other formats can be converted to .mzML format using <a href="http://proteowizard.sourceforge.net/">ProteoWizard Converter</a>. You can locate your local .mzML file in the "Local Data File" section. Alternatively, a file in the web (http or ftp) can be used. Its URL address can be specified in the textbox below. </li>
                 <li>After the spectral file is uploaded, a task ID will be created and displayed toward the bottom of this page. It carries a hyperlink to review the progress of the ongoing analysis.</li>
                 <li>When the analysis is completed, an email will be sent to the address you have provided. The task ID in the email or in this webpage will lead you to review the final report.</li>
                 <li>The report is readily retrievable by providing the correct combination of its task ID and associated email address. </li>

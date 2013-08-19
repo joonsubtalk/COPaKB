@@ -5,9 +5,10 @@
 <div class="row-fluid">
     <div class="alert alert-info">
     <button type="button" class="close button" data-toggle="collapse" data-target="#helpBar">&times;</button>
-        <h2>Integration of Multiple Analyses:</h2>
+        <h2>Analysis of Multiple Datasets:</h2>
         <div id="helpBar" class="collapse in">
-        <p>You can integrate the results of multiple analyses by providing corresponding task IDs in the "Task IDs" textbox.</p>
+        <p>You can integrate the results of multiple analyses by providing the task IDs of existing analyses 
+by any investigator team and/or by different groups in the "Task IDs" textbox.</p>
         <p><strong>(i)</strong> combining proteins commonly identified in these analyses <br />
             <strong>(ii)</strong> pinpointing analyses that carry a common biomarker. The list of analyses can be specified by their &quot;<strong>Task IDs</strong>&quot;. <br /></p>
     </div>
