@@ -1,0 +1,120 @@
+/* CIRCLE VIEW */
+
+.link {
+  fill: none;
+  stroke: rgba(69, 69, 69, 1);
+  stroke-opacity: .1;
+  pointer-events: none;
+  /* stroke-dasharray: 5,5; */
+  stroke-width: 1px;
+}
+.node {
+  font-size: 8px;
+}
+
+.link.highlighted {
+    stroke-width: 1px;
+    stroke: #49d058;
+}
+
+.node.highlighted {
+  fill: #49d058;
+}
+
+.node:hover {
+    font-size: 14px;
+    fill: #0085ca;
+    stroke-width: 1px;
+}
+
+.node.target {
+  font-size: 9px;
+}
+
+.node.highlighted {
+  font-size: 9px;
+}
+
+
+.link.source, .link.target {
+    stroke-width: 1.5px;
+    stroke: #0085ca;
+}
+
+
+.node.source {
+    fill: #0085ca;
+}
+
+
+.link.highlighted {
+  /*stroke-width: 1px;*/
+
+}
+
+.icv_subcontainer{
+    left: -30px;
+    top: -5px;
+}
+
+
+
+
+/* LIST OF CATEGORIES */
+
+.slc_list div.slc_entry_legend {
+    width: 320px;
+    font-size: 80%;
+    display: none;
+}
+
+.slc_list {
+    padding: 0 20px 0 0;
+    min-width: 320px;
+    margin-bottom: 3px;
+    /*max-width: 310px;*/
+}
+
+.slc_entry_label{
+    font-size: 100%;
+}
+
+.slc_panel{
+    margin-top: 5px;
+}
+
+.slc_entry_label.selected {
+    background-color: rgba(73, 208, 88, 0.2);
+    border: 1px rgba(73, 208, 88, 0.6) solid;
+}
+
+.slc_entry_label.highlighted {
+    background-color: rgba(73, 208, 88, 0.7);
+    border: 1px rgba(73, 208, 88, 1) solid;  /* #6464D0 */
+}
+
+
+/* INFO PANEL */
+.info_selectedProtein{
+    font-size: 150%;
+}
+
+.info_interactorProtein{
+    margin-right:5px;
+    float: left;
+    font-size: 90%;
+}
+.info_panel{
+    width:740px;
+}
+.info_interactors, .info_selectedProtein{
+    margin-left: 30px;
+}
+
+
+.vis_options{
+    display: block;
+    text-align: right;
+    font-size: 95%;
+    margin-bottom: 10px;
+}

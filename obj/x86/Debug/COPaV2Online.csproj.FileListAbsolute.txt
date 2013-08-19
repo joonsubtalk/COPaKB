@@ -1,0 +1,2 @@
+C:\Users\Pinglab\Documents\COPaV2Online\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Pinglab\Documents\COPaV2Online\bin\Debug\ConsoleApplication.exe.config

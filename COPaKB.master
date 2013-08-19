@@ -1,0 +1,559 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="COPaKB.master.cs" Inherits="COPaKB" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="utf-8">
+    <title>Cardiac Organellar Protein Atlas Knowledgebase (COPaKB)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Joon-Sub Chung">
+    <link rel="stylesheet" type="text/css" media="all" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="./assets/css/bootstrap-responsive.min.css">
+    <asp:Literal ID="addCSS" runat="server"/>
+
+    <style type="text/css">
+
+        body {
+            padding-bottom: 20px;
+            font-size: 12px;
+        }
+
+        .footer {
+            color: #888;
+        }
+
+        .footer > hr {
+            margin: 5px 0;
+            border: 0;
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        /* Custom container */
+        .container {
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        .container > hr {
+            margin: 0 0 60px 0;
+            border: none;
+        }
+
+        /* Customize the navbar links to be fill the entire space of the .navbar */
+        /* subhead
+    -------------------------------------------------- */
+        .subnav {
+            margin: 25px 0 0 0;
+            padding-bottom: 0;
+            height: 36px;
+            -webkit-border-top-left-radius: 0px;
+            -webkit-border-top-right-radius: 0px;
+            -moz-border-radius-topleft: 0px;
+            -moz-border-radius-topright: 0px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            font-weight: bold;
+        }
+
+        .subnav .nav > li > a {
+            margin: 0;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+        .nav-pills > .active > a,
+        .nav-pills > .active > a:hover,
+        .nav-pills > .active > a:focus {
+            color: #ffffff;
+            background-color: #008cce;
+        }
+
+        .subnav .nav > .active > a,
+        .subnav .nav > .active > a:hover {
+            padding-left: 13px;
+            border-right-color: #aaa;
+            border-left: 0;
+            background-color: none;
+        }
+
+        .subnav .nav > .active > a .caret,
+        .subnav .nav > .active > a:hover .caret {
+            border-top-color: #fff;
+        }
+
+        .nav-tabs .open .dropdown-toggle, 
+        .nav-pills .open .dropdown-toggle, 
+        .nav > li.dropdown.open.active > a:hover, 
+        .nav > li.dropdown.open.active > a:focus {
+            color: #fff;
+            background-color: #16a9ea;
+            border-color: #16a9ea;
+        }
+
+        .subnav .nav > li:first-child > a,
+        .subnav .nav > li:first-child > a:hover {
+            border-left: 0;
+            padding-left: 12px;
+            -webkit-border-radius: 0px 0 0 0px;
+            -moz-border-radius: 0px 0 0 0px;
+            border-radius: 0px 0 0 0px;
+        }
+
+        .subnav .nav > li:last-child > a {
+            border-right: 0;
+        }
+
+        @media (max-width: 767px) {
+
+            .subnav {
+                position: static;
+                top: auto;
+                z-index: auto;
+                width: auto;
+                height: auto;
+                background: #fff; /* whole background property since we use a background-image for gradient */
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+            }
+
+            .subnav .nav > li {
+                float: none;
+            }
+
+            .subnav .nav > li > a {
+                border: 0;
+            }
+
+            .subnav .nav > li + li > a {
+                border-top: 1px solid #e5e5e5;
+            }
+
+            .subnav .nav > li:first-child > a,
+            .subnav .nav > li:first-child > a:hover {
+                -webkit-border-radius: 0px 0px 0 0;
+                -moz-border-radius: 0px 0px 0 0;
+                border-radius: 0px 0px 0 0;
+            }
+        }
+
+        @media (min-width: 980px) {
+
+            .subnav-fixed {
+                position: fixed;
+                top: 40px;
+                left: 0;
+                right: 0;
+                z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+                border-color: #d5d5d5;
+                border-width: 0 0 1px; /* drop the border on the fixed edges */
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                border-radius: 0px;
+                -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+                -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+                box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+                filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
+            }
+
+            .subnav-fixed .nav {
+                width: 938px;
+                margin: 0 auto;
+                padding: 0 1px;
+            }
+
+            .subnav .nav > li:first-child > a,
+            .subnav .nav > li:first-child > a:hover {
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0px;
+            }
+        }
+
+
+        @media (min-width: 1210px) {
+
+            .subnav-fixed .nav {
+                width: 1168px; /* 2px less to account for left/right borders being removed when in fixed mode */
+            }
+        }
+
+        .bar-left {
+            border-left: 1px solid #aaa;
+            padding-left: 10px;
+        }
+
+        .nav {
+            margin-bottom: 0px;
+            margin-left: 0;
+            list-style: none;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        .carousel .container {
+            position: relative;
+            z-index: 9;
+        }
+
+        .carousel-control {
+            height: 80px;
+            margin-top: 0;
+            font-size: 120px;
+            text-shadow: 0 1px 1px rgba(0,0,0,.4);
+            background-color: transparent;
+            border: 0;
+            z-index: 10;
+        }
+
+        .carousel {
+            margin-bottom: 18px;
+        }
+
+        .carousel .item {
+            height: 275px;
+        }
+
+        .carousel img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 275px;
+        }
+
+        .wrapper {
+            margin-left: 50px;
+        }
+
+        .carousel-caption {
+            position: static;
+            max-width: 100%;
+            padding: 20px;
+            margin-top: 25px;
+            width: 550px;
+        }
+
+        .carousel-caption h1,
+        .carousel-caption .lead {
+            margin: 0;
+            line-height: 1.25;
+            color: #fff;
+            text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        }
+
+        .carousel-caption .btn {
+            margin-top: 10px;
+        }
+
+        .carousel-indicators.middle {
+            left: 0;
+            right: 0;
+            top: auto;
+            bottom: 10px;
+            text-align: center;
+        }
+
+        .carousel-indicators.middle li {
+            float: none;
+            display: inline-block;
+            border: 1px solid #ddd;
+        }
+
+        .top-bar {
+            background-color: #0085ca;
+            color: #fff;
+            height: 20px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        .dl-horizontal dt {
+            float: left;
+            width: 120px;
+            overflow: hidden;
+            clear: left;
+            text-align: right;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .dl-horizontal dd {
+            margin-left: 140px;
+        }
+
+        /** images **/
+        .imgbox{
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+        }
+        .imgbox1 {
+        display: block; 
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+        }
+        .imgbox img {
+        -webkit-box-shadow: 1px 4px 9px -1px rgba(0,0,0,0.65);
+        -moz-box-shadow: 1px 4px 9px -1px rgba(0,0,0,0.65);
+        box-shadow: 1px 4px 9px -1px rgba(0,0,0,0.65);
+        }
+
+        .imgbox1 img {
+        -webkit-box-shadow: 1px 4px 9px -1px rgba(0,0,0,0.65);
+        -moz-box-shadow: 1px 4px 9px -1px rgba(0,0,0,0.65);
+        box-shadow: 1px 4px 9px -1px rgba(0,0,0,0.65);
+        }
+        .magnify, .magnify1 {
+        position: relative;
+        }
+        /* Let's create the magnifying glass */
+        .large, .large1 {
+        display: none;
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+        /* box shadows to achieve the glass effect */
+        -webkit-box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 0 0 7px 7px rgba(0, 0, 0, 0.25), inset 0 0 40px 2px rgba(0, 0, 0, 0.25)
+        }
+        /* To solve overlap bug at the edges during magnification */
+        .thumb, .thumb1 {
+            display: block;
+        }
+        .tab-content {
+         overflow: hidden;
+        }
+        .GeneExpressionSummary_subtitle {
+            font-weight:bold;
+        }
+        .GeneExpressionSummary_feature {
+            padding-left: 10px;
+            font-style:italic
+        }
+        .thumbsize {
+            height: 80px;
+            width: 80px;
+        }
+        .bigthumbsize {
+            width: 160px;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            margin: 0px 5px 3px 0;
+            line-height: normal;
+        }
+        /* For copaclient */
+        .minijava {
+            height: 64px;
+        }
+        .oslogo {
+            height: 100px;
+        }
+        /* match input's margin-bottom */
+        .btn {
+            margin-bottom: 10px;
+        }
+        .xsmall {
+            height: 48px;
+        }
+        .imgpadding {
+            padding: 25px;
+            margin: 10px;
+        }
+        .sequence-type {
+            font-family: 'Courier New';
+            font-size: 15px;
+        }
+        /* For peptide info */
+        .spectra-padding {
+            margin-top: 29px;
+            border-bottom: 1px solid;
+        }
+        .pleft {
+            text-align: left;
+        }
+        .feature-part {
+            margin-top: 0px;
+            border: 10px solid #d2e1f6;
+            background-color: #488dcc;
+            color: #fff;
+            padding: 10px 20px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px; /* future proofing */
+            -khtml-border-radius: 10px; /* for old Konqueror browsers */
+        }
+        .feature-part a {
+            color: #fff;
+        }
+        .copa-img {
+            padding: 30px 20px;
+        }
+    </style>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-23316083-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+</script>
+    
+    <asp:Literal ID="initJS" runat="server"/>
+</head>
+<asp:Literal ID="boa" runat="server"/>
+    <form id="form2" runat="server" defaultbutton="Button1">
+    <div class="top-bar">
+        <div class="container">
+        </div>
+    </div>
+    <div class="container">
+        <div class="masthead">
+            <div class="row-fluid">
+                <div class="span8">
+                    <a href="Default.aspx"><img src="./assets/img/copamed.jpg" alt="" /></a>
+                </div>
+                <div class="span4">
+                    <asp:Literal ID="serverNotice" runat="server"/>
+                </div>
+            </div>
+            <div class="subnav">
+                <ul class="nav nav-pills uppercase">
+                    <asp:Literal id="isActiveHome" runat="server" />
+                    <asp:Literal id="isActiveResources" runat="server" />
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Modules.aspx">Organellar Modules</a></li>
+                            <li><a href="COPaTools.aspx">Proteome Biology Tools</a></li>
+                            <li><a href="DataDeposition.aspx">Data Deposition</a></li>
+                            <li><a href="Participator.aspx">Participating Institutions</a></li>
+                            <li><a href="ReleaseHistory.aspx">Release History</a></li>
+                            <li><a href="ContactUs.aspx">Contact Us</a></li>
+                        </ul>
+                    </li>
+                    <asp:Literal id="isActiveAnalysis" runat="server" />
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Functions <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="KeywordSearch.aspx?type=1">Protein Identifier Query</a></li>
+                            <li><a href="KeywordSearch.aspx?type=2">Amino Acid Sequence Query</a></li>
+                            <li><a href="MSRUNSearch.aspx">MS Data File (mzML)</a></li>
+                            <li><a href="SpectralSearch.aspx">MS Data File (DTA)</a></li>
+                            <li><a href="COPaKBClient.aspx">MS Data File (COPaKB Client)</a></li>
+                            <li><a href="epiSearch.aspx">Analysis of Multiple Datasets</a></li>
+                            <!--<li><a href="#">Clinical Analysis <span class="label label-important">Coming Soon</span></a></li>-->
+                        </ul>
+                    </li>
+                    <asp:Literal id="isActiveTutorial" runat="server" />
+                    <asp:Literal id="isActiveHelp" runat="server" />
+                    <asp:Literal id="isActiveWiki" runat="server" />
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://www.nhlbi-ucla.org/" target="_blank">NHLBI Proteomics @ UCLA</a></li>
+                            <li><a href="http://www.nhlbi-proteomics.org/" target="_blank">NHLBI Proteomics Program</a></li>
+                            <li><a href="http://www.ebi.ac.uk" target="_blank">The EMBL-EBI Team</a></li>
+                            <li><a href="http://www.biotech.kth.se/proteomics/" target="_blank">The KTH Team</a></li>
+                            <li><a href="http://www.cbeis.zju.edu.cn/bme1/index.htm" target="_blank">The ZJU Team</a></li>
+                            <li><a href="http://fields.scripps.edu/" target="_blank">The TSRI Team</a></li>
+                            <li><a href="http://www.signalingmodules.org/" target="_blank">The UCLA Team</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.subnavbar -->
+        </div><!-- /.masthead -->
+        <div class="row-fluid">
+            <div class="span9">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="span3">
+                <h2>Instructions to users</h2>
+                <ul class="unstyled">
+                    <li><a href="COPaWikiDefault.aspx?PageName=COPaKB+Help+Desk">Help Desk</a></li>
+                    <li><a href="COPaWikiDefault.aspx?PageName=tools">COPaKB Tools</a></li>
+                    <li><a href="COPaWikiDefault.aspx?PageName=iCOPa">iCOPa iOS App</a></li>
+                    <li><a href="COPaWikiDefault.aspx?PageName=Query%20COPaKB%20with%20an%20mzML%20File">Analyzing a mzML Data File</a></li>
+                    <li><a href="COPaWikiDefault.aspx?PageName=Query%20COPaKB%20with%20a%20DTA%20File">Analyzing a DTA Data File</a></li>
+                    <li><a href="epiSearch.aspx">Combining Parallel Analyses</a></li>
+                    <li><a href="COPaWikiDefault.aspx">COPaKB Wiki</a></li>
+                </ul>
+                <h2>Links</h2>
+                <ul class="unstyled">
+                    <li><a href="http://www.nhlbi-ucla.org/" target="_blank">NHLBI Proteomics @ UCLA</a></li>
+                    <li><a href="http://www.nhlbi-proteomics.org/" target="_blank">NHLBI Proteomics Program</a></li>
+                    <li><a href="http://www.ebi.ac.uk" target="_blank">The EMBL-EBI Team</a></li>
+                    <li><a href="http://www.biotech.kth.se/proteomics/" target="_blank">The KTH Team</a></li>
+                    <li><a href="http://www.cbeis.zju.edu.cn/bme1/index.htm" target="_blank">The ZJU Team</a></li>
+                    <li><a href="http://fields.scripps.edu/" target="_blank">The TSRI Team</a></li>
+                    <li><a href="http://www.signalingmodules.org/" target="_blank">The UCLA Team</a></li>
+                </ul>
+                <!--
+                <h2>Connect with us</h2>
+                <ul class="unstyled">
+                    <li><a href="mailto:Info@HeartProteome.org">Email</a></li>
+                    <li><a href="https://www.facebook.com/pages/COPa-Knowledgebase-COPaKB/274606495898036">Facebook</a></li>
+                    <li><a href="https://twitter.com/COPaKB/">Twitter</a></li>
+                    <li><a href="http://www.youtube.com/channel/UC9sfs284khxpXHPF4FubJJg?feature=watch">Youtube</a></li>
+                </ul>
+                -->
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container">
+        <div class="footer">
+            <div class="row-fluid">
+                <div class="span6">
+                    
+                    &copy; COPaKB 2013 | Cardiovascular Research Laboratory<br />
+                    Suite 1-609 MRL Building 675 Charles E. Young Dr. South Los Angeles, CA 90095-1760
+                </div>
+                <div class="text-right offset2 span4">
+                    <a href="COPaWikiDefault.aspx?PageName=COPaKB+Help+Desk">Help Desk</a> | <a href="COPaWikiDefault.aspx?PageName=FUNCTIONS%20AND%20UTILTIES%20OF%20COPaKB">Tutorials</a> | <a href="COPaWikiDefault.aspx">COPaKB Wiki</a> 
+                </div>
+            </div>
+            <hr class="foot">
+            <p>
+                COPa Knowledgebase is supported by a Proteomics Center Award from NHLBI/NIH<br />
+                268201000035C Proteome Biology of Cardiovascular Disease
+            </p>
+        </div>
+
+    </div> <!-- /container -->
+        <asp:Button 
+        ID="Button1" runat="server" OnClick="Button1_Click" Text="Keyword Search" 
+        BackColor="#EAEDEE" BorderStyle="None" ForeColor="#32699B" 
+        Height="20px" Width="98px"
+        ValidationGroup="MasterInputValid" />
+    </form>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./assets/js/magnify.js"></script>
+    <asp:Literal ID="helpBar" runat="server"/>
+    <asp:Literal ID="scriptProteinInfo" runat="server"/>
+    <asp:Literal ID="dataJS" runat="server"/>
+    <asp:Literal ID="lastJS" runat="server"/>
+</body>
+</html>
+

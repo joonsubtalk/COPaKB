@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:nsef="http://www.ncbi.nlm.nih.gov/soap/eutils/efetch_pubmed" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.ncbi.nlm.nih.gov/soap/eutils/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.ncbi.nlm.nih.gov/soap/eutils/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema>
+      <xs:import schemaLocation="efetch_db_pubmed.xsd" namespace="http://www.ncbi.nlm.nih.gov/soap/eutils/efetch_pubmed" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="eFetchRequest_m">
+    <wsdl:part name="inpp" element="nsef:eFetchRequest" />
+  </wsdl:message>
+  <wsdl:message name="eFetchResponse_m">
+    <wsdl:part name="outp" element="nsef:eFetchResult" />
+  </wsdl:message>
+  <wsdl:portType name="eUtilsServiceSoap">
+    <wsdl:operation name="run_eFetch">
+      <wsdl:input message="s0:eFetchRequest_m" />
+      <wsdl:output message="s0:eFetchResponse_m" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="eUtilsServiceSoap" type="s0:eUtilsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="run_eFetch">
+      <soap:operation soapAction="efetch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="eFetchPubmedService">
+    <wsdl:port name="eUtilsServiceSoap" binding="s0:eUtilsServiceSoap">
+      <soap:address location="http://eutils.ncbi.nlm.nih.gov/soap/v2.0/soap_adapter_2_0.cgi?db=pubmed" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLibraryModules">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLibraryModulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLibraryModulesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateATask2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchModules" type="tns:ArrayOfModule" />
+            <s:element minOccurs="1" maxOccurs="1" name="sc" type="tns:SearchingCondition" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModule">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Module" type="tns:Module" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Module">
+        <s:restriction base="s:string">
+          <s:enumeration value="human_heart_mitochondria" />
+          <s:enumeration value="mouse_heart_mitochondria" />
+          <s:enumeration value="human_heart_proteasome" />
+          <s:enumeration value="mouse_heart_proteasome" />
+          <s:enumeration value="mouse_heart_nucleus" />
+          <s:enumeration value="mouse_nist_iontrap" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="SearchingCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="bUseNoiseLibrary" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NormalSearchCondition" type="tns:ArrayOfSearchingThreadPair" />
+          <s:element minOccurs="1" maxOccurs="1" name="bOnlyTop1" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="bStatisticSearching" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="fPossiblity" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="fPrecursorWindow" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="iSlideSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="searchModules" type="tns:ArrayOfModule" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistinctPeptide" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UniquePeptide" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fPTMShift" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="bHighResolution" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="fPrecusorWindowHR" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="iIsotopePeaks" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="bBonusDetaMz" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="bUsePTMLibModule" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ePTMType" type="tns:PTMType" />
+          <s:element minOccurs="1" maxOccurs="1" name="bCustomizedLibraryFDR" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="fLibraryFDR" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSearchingThreadPair">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SearchingThreadPair" type="tns:SearchingThreadPair" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchingThreadPair">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MatchScore" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="DetaDecoyScore" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PTMType">
+        <s:restriction base="s:string">
+          <s:enumeration value="PHOSPHORYLATION" />
+          <s:enumeration value="ACETYLATION" />
+          <s:enumeration value="SUCCINYLATION" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateATask2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateATask2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReportWithFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="uniquepeptide" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReportWithFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateReportWithFilterResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCreteria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeCreteriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeCreteriaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeThreshold">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="threshold" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeThresholdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeThresholdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReportWithFilter2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchModules" type="tns:ArrayOfModule" />
+            <s:element minOccurs="1" maxOccurs="1" name="sc" type="tns:SearchingCondition" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReportWithFilter2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateReportWithFilter2Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendErrorReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendErrorReportResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateReportWithFDR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchModules" type="tns:ArrayOfModule" />
+            <s:element minOccurs="1" maxOccurs="1" name="sc" type="tns:SearchingCondition" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReportWithFDRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateReportWithFDRResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchDTA2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Spectra" type="tns:ArrayOfDouble" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrecursorMZ" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchModules" type="tns:ArrayOfModule" />
+            <s:element minOccurs="1" maxOccurs="1" name="sc" type="tns:SearchingCondition" />
+            <s:element minOccurs="1" maxOccurs="1" name="charge" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDouble">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="double" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchDTA2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchDTA2Result" type="tns:ArrayOfMSPepetideInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMSPepetideInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MSPepetideInfo" type="tns:MSPepetideInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MSPepetideInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MSFile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COPaPeptideID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LibSpectraSeq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchScore" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PeptideSequence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetaM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DecoyScore" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchFilterDTA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MZ" type="tns:ArrayOfDouble" />
+            <s:element minOccurs="0" maxOccurs="1" name="intensity" type="tns:ArrayOfDouble" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrecursorMZ" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="charge" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFilterDTAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFilterDTAResult" type="tns:ArrayOfMSPepetideInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchDTAWithoutPublish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Spectra" type="tns:ArrayOfDouble" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrecursorMZ" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchModules" type="tns:ArrayOfModule" />
+            <s:element minOccurs="1" maxOccurs="1" name="sc" type="tns:SearchingCondition" />
+            <s:element minOccurs="1" maxOccurs="1" name="Charge" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchDTAWithoutPublishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchDTAWithoutPublishResult" type="tns:ArrayOfMSPepetideInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFilterDTAWithoutPublish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MZ" type="tns:ArrayOfDouble" />
+            <s:element minOccurs="0" maxOccurs="1" name="Intensity" type="tns:ArrayOfDouble" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrecursorMZ" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="Charge" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFilterDTAWithoutPublishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFilterDTAWithoutPublishResult" type="tns:ArrayOfMSPepetideInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadReportFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownloadReportFileResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFilterDTAWithBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Scans" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="MZs" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="Intensities" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="Precursors" type="tns:ArrayOfFloat" />
+            <s:element minOccurs="0" maxOccurs="1" name="charges" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFloat">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="float" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchFilterDTAWithBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFilterDTAWithBatchResult" type="tns:ArrayOfMSPepetideInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFilterDTAWithBatchWithoutPublish">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Scans" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="MZs" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="Intensities" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="Precursors" type="tns:ArrayOfFloat" />
+            <s:element minOccurs="0" maxOccurs="1" name="charges" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFilterDTAWithBatchWithoutPublishResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFilterDTAWithBatchWithoutPublishResult" type="tns:ArrayOfMSPepetideInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLibraryModulesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLibraryModules" />
+  </wsdl:message>
+  <wsdl:message name="GetLibraryModulesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLibraryModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateATask2SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateATask2" />
+  </wsdl:message>
+  <wsdl:message name="CreateATask2SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateATask2Response" />
+  </wsdl:message>
+  <wsdl:message name="CreateReportWithFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateReportWithFilter" />
+  </wsdl:message>
+  <wsdl:message name="CreateReportWithFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateReportWithFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCreteriaSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeCreteria" />
+  </wsdl:message>
+  <wsdl:message name="ChangeCreteriaSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeCreteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeThresholdSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeThreshold" />
+  </wsdl:message>
+  <wsdl:message name="ChangeThresholdSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeThresholdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateReportWithFilter2SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateReportWithFilter2" />
+  </wsdl:message>
+  <wsdl:message name="CreateReportWithFilter2SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateReportWithFilter2Response" />
+  </wsdl:message>
+  <wsdl:message name="SendErrorReportSoapIn">
+    <wsdl:part name="parameters" element="tns:SendErrorReport" />
+  </wsdl:message>
+  <wsdl:message name="SendErrorReportSoapOut">
+    <wsdl:part name="parameters" element="tns:SendErrorReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateReportWithFDRSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateReportWithFDR" />
+  </wsdl:message>
+  <wsdl:message name="CreateReportWithFDRSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateReportWithFDRResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchDTA2SoapIn">
+    <wsdl:part name="parameters" element="tns:SearchDTA2" />
+  </wsdl:message>
+  <wsdl:message name="SearchDTA2SoapOut">
+    <wsdl:part name="parameters" element="tns:SearchDTA2Response" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTASoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTA" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTASoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchDTAWithoutPublishSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchDTAWithoutPublish" />
+  </wsdl:message>
+  <wsdl:message name="SearchDTAWithoutPublishSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchDTAWithoutPublishResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTAWithoutPublishSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTAWithoutPublish" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTAWithoutPublishSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTAWithoutPublishResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DownloadReportFile" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReportFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DownloadReportFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTAWithBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTAWithBatch" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTAWithBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTAWithBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTAWithBatchWithoutPublishSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTAWithBatchWithoutPublish" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilterDTAWithBatchWithoutPublishSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFilterDTAWithBatchWithoutPublishResponse" />
+  </wsdl:message>
+  <wsdl:portType name="COPaWSSoap">
+    <wsdl:operation name="GetLibraryModules">
+      <wsdl:input message="tns:GetLibraryModulesSoapIn" />
+      <wsdl:output message="tns:GetLibraryModulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateATask2">
+      <wsdl:input message="tns:CreateATask2SoapIn" />
+      <wsdl:output message="tns:CreateATask2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFilter">
+      <wsdl:input message="tns:CreateReportWithFilterSoapIn" />
+      <wsdl:output message="tns:CreateReportWithFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCreteria">
+      <wsdl:input message="tns:ChangeCreteriaSoapIn" />
+      <wsdl:output message="tns:ChangeCreteriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeThreshold">
+      <wsdl:input message="tns:ChangeThresholdSoapIn" />
+      <wsdl:output message="tns:ChangeThresholdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFilter2">
+      <wsdl:input message="tns:CreateReportWithFilter2SoapIn" />
+      <wsdl:output message="tns:CreateReportWithFilter2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendErrorReport">
+      <wsdl:input message="tns:SendErrorReportSoapIn" />
+      <wsdl:output message="tns:SendErrorReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFDR">
+      <wsdl:input message="tns:CreateReportWithFDRSoapIn" />
+      <wsdl:output message="tns:CreateReportWithFDRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDTA2">
+      <wsdl:input message="tns:SearchDTA2SoapIn" />
+      <wsdl:output message="tns:SearchDTA2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTA">
+      <wsdl:input message="tns:SearchFilterDTASoapIn" />
+      <wsdl:output message="tns:SearchFilterDTASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDTAWithoutPublish">
+      <wsdl:input message="tns:SearchDTAWithoutPublishSoapIn" />
+      <wsdl:output message="tns:SearchDTAWithoutPublishSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithoutPublish">
+      <wsdl:input message="tns:SearchFilterDTAWithoutPublishSoapIn" />
+      <wsdl:output message="tns:SearchFilterDTAWithoutPublishSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFile">
+      <wsdl:input message="tns:DownloadReportFileSoapIn" />
+      <wsdl:output message="tns:DownloadReportFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithBatch">
+      <wsdl:input message="tns:SearchFilterDTAWithBatchSoapIn" />
+      <wsdl:output message="tns:SearchFilterDTAWithBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithBatchWithoutPublish">
+      <wsdl:input message="tns:SearchFilterDTAWithBatchWithoutPublishSoapIn" />
+      <wsdl:output message="tns:SearchFilterDTAWithBatchWithoutPublishSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="COPaWSSoap" type="tns:COPaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLibraryModules">
+      <soap:operation soapAction="http://tempuri.org/GetLibraryModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateATask2">
+      <soap:operation soapAction="http://tempuri.org/CreateATask2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFilter">
+      <soap:operation soapAction="http://tempuri.org/CreateReportWithFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCreteria">
+      <soap:operation soapAction="http://tempuri.org/ChangeCreteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeThreshold">
+      <soap:operation soapAction="http://tempuri.org/ChangeThreshold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFilter2">
+      <soap:operation soapAction="http://tempuri.org/CreateReportWithFilter2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendErrorReport">
+      <soap:operation soapAction="http://tempuri.org/SendErrorReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFDR">
+      <soap:operation soapAction="http://tempuri.org/CreateReportWithFDR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDTA2">
+      <soap:operation soapAction="http://tempuri.org/SearchDTA2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTA">
+      <soap:operation soapAction="http://tempuri.org/SearchFilterDTA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDTAWithoutPublish">
+      <soap:operation soapAction="http://tempuri.org/SearchDTAWithoutPublish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithoutPublish">
+      <soap:operation soapAction="http://tempuri.org/SearchFilterDTAWithoutPublish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFile">
+      <soap:operation soapAction="http://tempuri.org/DownloadReportFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithBatch">
+      <soap:operation soapAction="http://tempuri.org/SearchFilterDTAWithBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithBatchWithoutPublish">
+      <soap:operation soapAction="http://tempuri.org/SearchFilterDTAWithBatchWithoutPublish" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="COPaWSSoap12" type="tns:COPaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLibraryModules">
+      <soap12:operation soapAction="http://tempuri.org/GetLibraryModules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateATask2">
+      <soap12:operation soapAction="http://tempuri.org/CreateATask2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFilter">
+      <soap12:operation soapAction="http://tempuri.org/CreateReportWithFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeCreteria">
+      <soap12:operation soapAction="http://tempuri.org/ChangeCreteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeThreshold">
+      <soap12:operation soapAction="http://tempuri.org/ChangeThreshold" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFilter2">
+      <soap12:operation soapAction="http://tempuri.org/CreateReportWithFilter2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendErrorReport">
+      <soap12:operation soapAction="http://tempuri.org/SendErrorReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReportWithFDR">
+      <soap12:operation soapAction="http://tempuri.org/CreateReportWithFDR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDTA2">
+      <soap12:operation soapAction="http://tempuri.org/SearchDTA2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTA">
+      <soap12:operation soapAction="http://tempuri.org/SearchFilterDTA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDTAWithoutPublish">
+      <soap12:operation soapAction="http://tempuri.org/SearchDTAWithoutPublish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithoutPublish">
+      <soap12:operation soapAction="http://tempuri.org/SearchFilterDTAWithoutPublish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReportFile">
+      <soap12:operation soapAction="http://tempuri.org/DownloadReportFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithBatch">
+      <soap12:operation soapAction="http://tempuri.org/SearchFilterDTAWithBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilterDTAWithBatchWithoutPublish">
+      <soap12:operation soapAction="http://tempuri.org/SearchFilterDTAWithBatchWithoutPublish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="COPaWS">
+    <wsdl:port name="COPaWSSoap" binding="tns:COPaWSSoap">
+      <soap:address location="http://localhost/ws/copaws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="COPaWSSoap12" binding="tns:COPaWSSoap12">
+      <soap12:address location="http://localhost/ws/copaws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

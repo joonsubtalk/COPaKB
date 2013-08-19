@@ -1,0 +1,98 @@
+/* Splitter Container */
+.ob_spl_panel_1
+{
+
+}
+
+/* Horizontal Splitter - Top Panel classes */
+.ob_spl_toppanel_1
+{
+	
+}
+.ob_spl_toppanelheader_1
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:white;
+	overflow:auto;
+}
+.ob_spl_toppanelcontent_1
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:white;
+	overflow:none;
+}
+.ob_spl_toppanelfooter_1
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:white;
+	overflow:auto;
+}
+
+/* Horizontal Splitter - Bottom Panel classes */
+.ob_spl_bottompanel_1
+{
+
+}
+.ob_spl_bottompanelheader_1
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:white;
+	overflow:auto;
+	background-image:url(pagebg.jpg);background-repeat:repeat-y
+}
+.ob_spl_bottompanelcontent_1
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:white;
+	overflow:auto;
+	background-image:url(pagebg.jpg);background-repeat:repeat-y
+}
+.ob_spl_bottompanelfooter_1
+{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:white;
+	overflow:auto;
+	background-image:url(pagebg.jpg);background-repeat:repeat-y
+}
+
+/* Splitter Divider */
+.ob_spl_dividerhorizontal_1
+{
+	width:6px;
+	height:6px;
+	background-color:#6B89AF;
+	font-size:1px;
+}
+
+/* Splitter ResizeBar */
+.ob_spl_resizebarhorizontal_1
+{
+	border-top:1px solid #336699;
+}
+
+/* Splitter Collapse/Expand */
+.ob_spl_collapsetop_1
+{
+	width:16px;
+	height:6px;
+	cursor:pointer;
+	z-index:101;
+	background-image:url(arrow_top.gif);background-repeat:no-repeat;background-position:center center;
+	border:0px;
+}
+
+.ob_spl_collapsebottom_1
+{
+	width:16px;
+	height:6px;
+	cursor:pointer;
+	z-index:101;
+	background-image:url(arrow_bottom.gif);background-repeat:no-repeat;background-position:center center;
+	border:0px;
+}

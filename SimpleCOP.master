@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SimpleCOP.master.cs" Inherits="SimpleCOP" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Cardiac Organellar Protein Atlas Knowledgebase (COPaKB)</title>
+     <LINK href="./main.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .style6
+        {
+            height: 10px;
+        }
+        .style36
+        {
+            
+        }
+                
+        .graph { 
+	        position: relative;/* IE is dumb */
+	        width: 600px; 
+	        border: 1px solid #339966;
+	        padding: 2px; 
+        }
+        .graph .bar { 
+	        display: block;
+	        position: relative;
+	        background:#339966;
+	        text-align: left; 
+	        color: #333; 
+	        height: 1.5em; 
+	        line-height: 1.5em;            
+        }
+
+        </style>
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23316083-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body class ="al_pages">
+    <table align="center"  style="width:960;" cellpadding="0" cellspacing="0" 
+        bgcolor="White" >
+        <tr>
+            
+            <td >
+                <table style="width:100%;">
+                    <tr>
+                        <td align= "center" colspan ="2">
+     <img src="_image/newlogoheader.PNG" alt="title bar" align="middle" height="140" width="826" /></td>
+                    </tr>
+                    <tr>
+                        <td class="style6">
+                            &nbsp;</td>
+                    </tr>
+                    
+                </table>
+            </td>
+          
+        </tr>
+        <tr>
+            
+            <td class="style36" valign="top"><asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
+        
+        </asp:ContentPlaceHolder>
+              
+            </td>
+          
+        </tr>
+        <tr>
+            
+            <TD background="_image/in_foot.gif" class=STYLE69><div align="center" class="center center STYLE72">COPa Knowledgebase is supported by  a Proteomics Center Award from NHLBI/NIH</br><i>268201000035C Proteome Biology of Cardiovascular Disease</i></div></TD>
+            
+        </tr>
+        
+    </table>
+    <br />
+   
+
+    </body>
+</html>

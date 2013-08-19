@@ -1,0 +1,380 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="COP.master.cs" Inherits="COP" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Cardiac Organellar Protein Atlas Knowledgebase (COPaKB) </title>
+     <link href="./main.css" rel="stylesheet" type="text/css"/>
+     <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+     <link href="./assets/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .style5
+        {
+            height: 508px;
+            width: 610px;
+        }
+        .style6
+        {
+            height: 34px;
+        }
+        .style7
+        {
+            width: 105px;
+            height: 12px;
+        }
+        .style9
+        {
+            width: 11px;
+            height: 12px;
+        }
+        .style10
+        {
+            width: 176px;
+            height: 12px;
+        }
+        .style23
+        {
+            height: 110px;
+        }
+        .style24
+        {
+            height: 15px;
+        }
+        .style25
+        {
+            height: 149px;
+        }
+        .style36
+        {
+            height: 530px;
+        }
+        .style61
+        {
+            width: 171px;
+            height: 110px;
+        }
+        .style62
+        {
+            width: 171px;
+        }
+        .style67
+        {
+            height: 12px;
+        }
+        .STYLE74 {color: #32699B; font-family: Arial, Helvetica, sans-serif; }
+        .style68
+        {
+            height: 21px;
+        }
+        .style69
+        {
+            height: 25px;
+        }
+        .style70
+        {
+            height: 22px;
+        }
+        .auto-style1 {
+            width: 216px;
+            height: 12px;
+        }
+        .auto-style2 {
+            color: #800000;
+        }
+        </style>
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-23316083-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+</script>
+
+</head>
+<body class ="al_pages" >
+<form id="form2" runat="server" defaultbutton="Button1">
+    <table align="center"  style="width:826px;" cellpadding="0" cellspacing="0" 
+        bgcolor="White" >
+        <tr>
+           
+            <td >
+                <table style="width:100%;">
+                    <tr>
+                        <td align= "center" colspan ="2">
+     <img src="_image/newlogoheader.PNG" alt="COPaKB" align="middle" height="140" width="826" /></td>
+                    </tr>
+                    <tr >
+                        <td  class="style6">
+                            <table style="width:100%;" cellpadding="0" background="_image/searchback_mid.gif" cellspacing="0">
+                                <tr>
+                                  <td width="15" valign="top" class="style67">
+                                        <img src="_image/searchback_left.gif" 
+                                            width="15" height="34"></td>
+                                    <td class="style7" valign="bottom">
+                            <asp:DropDownList ID="ddlQueryType" runat="server">
+                                <asp:ListItem>Protein ID</asp:ListItem>
+                                <asp:ListItem>Protein Name</asp:ListItem>
+                                <asp:ListItem>Gene Symbol</asp:ListItem>
+                                <asp:ListItem>Peptide Sequence</asp:ListItem>
+                                <asp:ListItem>Spectrum Precursor</asp:ListItem>
+                            </asp:DropDownList>
+                                    </td>
+                                    <td class="style9">
+                                        </td>
+                                    <td class="style10" valign="bottom">
+                                        <asp:TextBox ID="tbKeyWords" runat="server" Width="156px" 
+                                            ontextchanged="tbKeyWords_TextChanged" ValidationGroup="MasterInputValid"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                            ControlToValidate="tbKeyWords" ErrorMessage="*" 
+                                            ValidationGroup="MasterInputValid"></asp:RequiredFieldValidator>
+                                    </td>
+                                    <td  valign="bottom" class="auto-style1">
+                                        <asp:ImageButton ID="ImageButton1" runat="server" 
+                                            ImageUrl="_image/search.gif" OnClick="Button1_Click" 
+                                            ValidationGroup="MasterInputValid"/><asp:Button 
+                                            ID="Button1" runat="server" OnClick="Button1_Click" Text="Keyword Search" 
+                                            BackColor="#EAEDEE" BorderStyle="None" ForeColor="#32699B" 
+                                            Height="20px" Width="98px"
+                                            ValidationGroup="MasterInputValid" />&nbsp;&nbsp;
+                                        </td>
+                                             <td style="font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: small;" 
+                                        class="style67" valign="bottom" >
+                                                 
+                                               &nbsp;<a href="COPaWikiDefault.aspx?PageName=COPaKB+Help+Desk" target="_blank">Help Desk/Tutorials</a> ｜
+                                                     <a href="COPaWikiDefault.aspx" target="_blank">COPaKB Wiki</a></td>
+                                                 <td class="style67" align="right">
+                                        <img src="_image/searchback_right.gif" 
+                                            width="5" height="34"></td>
+                                </tr>
+                               
+                            </table>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+           
+        </tr>
+        <tr>
+            
+            <td class="style36">
+                <table width ="100%">
+                    <tr valign="top">
+                        <td  valign="top" bgcolor="#EAEDEE" 
+                            
+                            
+                            style="background-position: 0px 0px; border-width: 0px; background-image: url('_image/topleft.JPG'); background-repeat: no-repeat; width: 200px;">
+                            <table style=" border-width: 0px; border-color: #FFFFFF; width:100%;" 
+                                cellpadding="0" cellspacing="0">
+                                <tr style="height: 16px">
+                                    <td class="style25">
+                                        <table style="border-width: 0px; width:100%; height: 160px;" cellpadding="0" 
+                                            cellspacing="0">
+                                            <tr style="height: 16px">
+                                                <td style="width: 16px">
+                                                    &nbsp;</td>
+                                                <td >
+                                                </td>
+                                                <td  style="width: 16px">
+                                                    &nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="style23">
+                                                </td>
+                                                <td class="style61">
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td class="style24" align="left" bgcolor="#F4F7FC" style="border-bottom-style: solid; border-bottom-width: thin; border-bottom-color: #3399FF">                                                               <img src="_image/in_home.gif" width="135" height="25"></td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70" >
+                                                             · <a href="Default.aspx">Home</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70" >
+                                                              · <a href="Modules.aspx">Organellar Modules</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70">
+                                                              · <a href ="DataDeposition.aspx">Data Deposition</a>&nbsp; </td>
+                                                           
+                                                        </tr>
+                                                         <tr>
+                                                            <td class="style70" >
+                                                              · <a href ="Participator.aspx">Participating Institutions</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70" >
+                                                              · <a href = "ReleaseHistory.aspx">Release History</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70" >
+                                                              · <a href = "ContactUs.aspx">Contact Us</a></td>
+                                                           
+                                                        </tr>
+                                                        
+                                                         <tr>
+                                                            <td >
+                                                                </td>
+                                                           
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td class="style23">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    &nbsp;</td>
+                                                <td class="style62">
+                                                    <table width="100%" 
+                                                        >
+                                                        <tr>
+                                                            <td align="left" bgcolor="#F4F7FC" style="border-bottom-style: solid; border-bottom-width: thin; border-bottom-color: #3399FF">
+                                                                <img src="_image/in_search.gif" width="135" height="25"></td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70" >
+                                                               ·<a href ="MSRUNSearch.aspx"> Query COPaKB (mzML File)</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70" >
+                                                              ·<a href ="SpectralSearch.aspx"> Query COPaKB (DTA file)</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70" >
+                                                              ·<a href ="KeywordSearch.aspx"> Keyword Search</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70" >
+                                                              ·<a href ="COPaWikiDefault.aspx" target="_blank"> COPaKB Wiki Pages</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70" >
+                                                               ·<a href ="COPaTools.aspx"> Tools for Proteome Biology</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                        <td  class="style70" >
+                                                            · <a href="COPaKBClient.aspx" target="_blank"> <strong><span class="auto-style2">New!</span></strong> COPaKB Client</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td  class="style70" >
+                                                            · <a href=""> <strong><span class="auto-style2">Coming!</span></strong> Clinical Analysis</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                               &nbsp;</td>
+                                                           
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td>
+                                                    &nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                              
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td bgcolor="#F4F7FC" style="border-bottom-style: solid; border-bottom-width: thin; border-bottom-color: #3399FF">
+                                                                <img src="_image/in_link.gif" width="135" height="25"></td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td  class="style70" >
+                                                               · <a href="http://www.signalingmodules.org/" target="_blank">The UCLA Team</a>
+                                                            </td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70" >
+                                                              · <a href="http://fields.scripps.edu/" target="_blank">The TSRI Team</a>
+                                                            </td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70">
+                                                               · <a href="http://www.ebi.ac.uk" target="_blank">The EMBL-EBI Team</a>
+                                                            </td>
+                                                           
+                                                        </tr>
+                                                       
+                                                        <tr>
+                                                            <td class="style70" >
+                                                                · <a href="http://www.biotech.kth.se/proteomics/" target="_blank">The KTH Team
+                                                                </a>
+                                                            </td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70" >
+                                                                · <a href="http://www.cbeis.zju.edu.cn/bme1/index.htm" target="_blank">The ZJU Team</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70" >
+                                                               · <a href="http://www.nhlbi-proteomics.org/" target="_blank">NHLBI Proteomics Program</a></td>
+                                                           
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="style70" >
+                                                               · <a href="http://www.nhlbi-ucla.org/" target="_blank">NHLBI Proteomics @ UCLA</a></td>
+                                                           
+                                                        </tr>
+                                                    </table>
+                                                   
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                    
+                                </tr>
+                               
+                            </table>
+                        </td>
+                        <td class="style5" valign="top">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
+        
+        </asp:ContentPlaceHolder>
+                        </td>
+                       
+                    </tr>
+                  
+                </table>
+            </td>
+            
+        </tr>
+        <TR>
+   
+    <TD background="_image/in_foot.gif" class="style69"><div align="center" class="center center STYLE72">COPa Knowledgebase is supported by  a Proteomics Center Award from NHLBI/NIH<br /><i>268201000035C Proteome Biology of Cardiovascular Disease</i><br />
+        </div></TD>
+    </TR>
+      
+    </table>
+    <br />
+    </form>
+
+    </body>
+</html>
